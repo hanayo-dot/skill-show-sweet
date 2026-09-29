@@ -38,7 +38,7 @@ const techStrip = [
   "GraphQL",
 ];
 
-const whyCards = [
+const whyCardsTop = [
   {
     icon: Code2,
     title: "Production-Grade Reliability",
@@ -49,12 +49,12 @@ const whyCards = [
     title: "Performance First Mindset",
     body: "Core Web Vitals, ultra-fast render, and aggressive latency optimization across every critical path.",
   },
-  {
-    icon: Server,
-    title: "Scalable Cloud Architecture",
-    body: "Serverless infrastructure, secure-by-default design, and efficient data pipelines built to grow with load.",
-  },
 ];
+
+const cloudCard = {
+  title: "Scalable Cloud Architecture",
+  body: "Serverless infrastructure, secure-by-default design, and efficient data pipelines built to grow with load.",
+};
 
 const milestones = [
   {
