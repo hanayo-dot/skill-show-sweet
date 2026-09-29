@@ -8,3 +8,6 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+## Design
+- Portfolio uses the "Crimson Terminal" dark-only theme; all colors are oklch semantic tokens in src/styles.css (bg-grid-red, glow-red, text-glow-red utilities). Never hardcode colors in components.
