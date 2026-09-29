@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Code2, Gauge, Server } from "lucide-react";
+import { ArrowRight, Code2, Gauge } from "lucide-react";
 import heroPortrait from "@/assets/hero-portrait.jpg";
 import dottedGlobe from "@/assets/dotted-globe.jpg";
 import chipMacro from "@/assets/chip-macro.jpg";
@@ -156,14 +156,14 @@ function Index() {
           Why Partner With Me Today And Always?
         </h2>
         <div className="mt-10 grid gap-4 md:grid-cols-2">
-          {whyCards.slice(0, 2).map((card) => (
+          {whyCardsTop.map((card) => (
             <WhyCard key={card.title} {...card} />
           ))}
           <div className="group relative overflow-hidden rounded-3xl border border-primary/15 bg-card transition-shadow hover:glow-red">
             <div className="absolute inset-0 bg-grid-red opacity-40 [mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)]" />
             <div className="relative flex h-full min-h-56 flex-col justify-end p-6">
-              <h3 className="font-display text-lg font-semibold">{whyCards[2].title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{whyCards[2].body}</p>
+              <h3 className="font-display text-lg font-semibold">{cloudCard.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{cloudCard.body}</p>
             </div>
           </div>
           <div className="group relative overflow-hidden rounded-3xl border border-primary/15 transition-shadow hover:glow-red">
