@@ -29,7 +29,7 @@ function ContactPage() {
     event.preventDefault();
     const subject = encodeURIComponent(`Project inquiry from ${form.name || "your website"}`);
     const body = encodeURIComponent(`${form.message}\n\n— ${form.name} (${form.email})`);
-    window.location.href = `mailto:hello@henryanayo.dev?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:Tintillerke@gmail.com?subject=${subject}&body=${body}`;
   };
 
   const inputClasses =
@@ -51,13 +51,13 @@ function ContactPage() {
             </p>
             <div className="mt-8 space-y-4 text-sm">
               <a
-                href="mailto:hello@henryanayo.dev"
+                href="mailto:Tintillerke@gmail.com"
                 className="flex items-center gap-3 text-muted-foreground transition-colors hover:text-primary"
               >
                 <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-primary/25 bg-primary/10 text-primary">
                   <Mail className="h-4 w-4" />
                 </span>
-                hello@henryanayo.dev
+                Tintillerke@gmail.com
               </a>
               <p className="flex items-center gap-3 text-muted-foreground">
                 <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-primary/25 bg-primary/10 text-primary">

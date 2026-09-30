@@ -26,32 +26,32 @@ export const Route = createFileRoute("/projects")({
 
 const projects = [
   {
-    name: "Ledger Grid",
+    name: "Kivu",
+    year: "2025 — 2026",
+    description:
+      "A lake-wide aquaculture, water-quality, and spatial intelligence platform built for fish-cage farmers on Lake Victoria.",
+    tags: ["Spatial Intelligence", "IoT Telemetry", "GIS", "React", "PostgreSQL"],
+  },
+  {
+    name: "Tartua",
     year: "2025",
     description:
-      "Real-time financial reconciliation platform processing 2M+ transactions daily with sub-second match latency.",
-    tags: ["React", "Node.js", "PostgreSQL", "Redis"],
+      "A platform that unifies all your social media accounts into one dashboard, allowing you to manage them and track analytics, performance, and audience data in one place.",
+    tags: ["Social APIs", "Analytics Engine", "React", "Node.js", "Redis"],
   },
   {
-    name: "FleetSense",
-    year: "2024",
+    name: "Jonam",
+    year: "2025",
     description:
-      "IoT telemetry dashboard ingesting sensor data from 40,000 fleet vehicles, with anomaly alerts and live maps.",
-    tags: ["Next.js", "TimescaleDB", "AWS IoT"],
+      "An interactive, machine-learning-driven environmental monitoring and risk assessment platform built to protect Lake Victoria's ecosystem.",
+    tags: ["Machine Learning", "Environmental AI", "Time-Series", "Python", "React"],
   },
   {
-    name: "Orbit CMS",
-    year: "2024",
+    name: "Haven Property",
+    year: "2026",
     description:
-      "Headless content platform with a GraphQL API, edge caching, and a visual editor used by non-technical teams.",
-    tags: ["GraphQL", "Serverless", "Cloudflare"],
-  },
-  {
-    name: "PulsePay",
-    year: "2023",
-    description:
-      "Payments orchestration API routing across multiple processors with automatic failover and idempotent retries.",
-    tags: ["Node.js", "Stripe", "Kubernetes"],
+      "Haven Kenya is a property and maintenance management platform engineered with React 19 + Tailwind CSS on the frontend and an ultra-fast, robust Go (1.26) backend.",
+    tags: ["React 19", "Go 1.26", "Tailwind CSS", "PostgreSQL", "REST APIs"],
   },
 ];
 

@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { Logo } from "../components/Logo";
 
 const navLinks = [
   { to: "/projects", label: "Projects" },
@@ -23,11 +24,11 @@ function SiteHeader() {
   return (
     <header className="fixed inset-x-0 top-4 z-50 px-4">
       <div className="mx-auto flex max-w-6xl items-center justify-between rounded-full border border-primary/15 bg-background/70 py-2.5 pl-4 pr-2.5 backdrop-blur-xl">
-        <Link to="/" className="flex items-center gap-2.5">
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-sm font-bold text-primary-foreground">
-            HA
+        <Link to="/" className="group flex items-center gap-2.5">
+          <Logo size={32} />
+          <span className="text-sm font-semibold tracking-tight transition-colors group-hover:text-primary">
+            Henry Anayo
           </span>
-          <span className="text-sm font-semibold tracking-tight">Henry Anayo</span>
         </Link>
         <nav className="hidden items-center gap-1 md:flex">
           {navLinks.map((link) => (
@@ -56,7 +57,10 @@ function SiteFooter() {
   return (
     <footer className="border-t border-primary/10 py-10">
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 text-sm text-muted-foreground md:flex-row">
-        <span>© {new Date().getFullYear()} Henry Anayo. All rights reserved.</span>
+        <div className="flex items-center gap-2.5">
+          <Logo size={22} withGlow={false} />
+          <span>© {new Date().getFullYear()} Henry Anayo. All rights reserved.</span>
+        </div>
         <nav className="flex items-center gap-4">
           {navLinks.map((link) => (
             <Link key={link.to} to={link.to} className="transition-colors hover:text-foreground">
@@ -64,8 +68,8 @@ function SiteFooter() {
             </Link>
           ))}
         </nav>
-        <a href="mailto:hello@henryanayo.dev" className="transition-colors hover:text-primary">
-          hello@henryanayo.dev
+        <a href="mailto:Tintillerke@gmail.com" className="transition-colors hover:text-primary">
+          Tintillerke@gmail.com
         </a>
       </div>
     </footer>
@@ -161,6 +165,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
+      { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
   }),
