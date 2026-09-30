@@ -7,11 +7,12 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Logo } from "../components/Logo";
+import { SocialIcons } from "../components/SocialLinks";
 
 const navLinks = [
   { to: "/projects", label: "Projects" },
@@ -20,11 +21,39 @@ const navLinks = [
   { to: "/impact", label: "Impact" },
 ] as const;
 
+function ScrollProgress() {
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const scrollY = window.scrollY;
+      const height = document.documentElement.scrollHeight - window.innerHeight;
+      if (height > 0) {
+        setProgress(Math.min(100, Math.max(0, (scrollY / height) * 100)));
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  return (
+    <div
+      aria-hidden="true"
+      className="fixed inset-x-0 top-0 z-[60] h-[2px] pointer-events-none"
+    >
+      <div
+        className="h-full bg-primary text-glow-red transition-[width] duration-75 ease-out shadow-[0_0_8px_var(--primary)]"
+        style={{ width: `${progress}%` }}
+      />
+    </div>
+  );
+}
+
 function SiteHeader() {
   return (
     <header className="fixed inset-x-0 top-4 z-50 px-4">
-      <div className="mx-auto flex max-w-6xl items-center justify-between rounded-full border border-primary/15 bg-background/70 py-2.5 pl-4 pr-2.5 backdrop-blur-xl">
-        <Link to="/" className="group flex items-center gap-2.5">
+      <div className="mx-auto flex max-w-6xl items-center justify-between rounded-full border border-primary/15 bg-background/70 py-2.5 pl-4 pr-2.5 backdrop-blur-xl shadow-lg shadow-black/20 transition-all duration-300 hover:border-primary/30">
+        <Link to="/" className="group flex items-center gap-2.5 transition-transform active:scale-95">
           <Logo size={32} />
           <span className="text-sm font-semibold tracking-tight transition-colors group-hover:text-primary">
             Henry Anayo
@@ -35,8 +64,8 @@ function SiteHeader() {
             <Link
               key={link.to}
               to={link.to}
-              className="rounded-full px-3.5 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
-              activeProps={{ className: "bg-secondary text-foreground" }}
+              className="rounded-full px-3.5 py-1.5 text-sm text-muted-foreground transition-all duration-150 hover:-translate-y-0.5 hover:bg-secondary hover:text-foreground active:scale-95"
+              activeProps={{ className: "bg-secondary text-foreground shadow-sm" }}
             >
               {link.label}
             </Link>
@@ -44,7 +73,7 @@ function SiteHeader() {
         </nav>
         <Link
           to="/contact"
-          className="rounded-full bg-foreground px-4 py-2 text-sm font-medium text-background transition-opacity hover:opacity-85"
+          className="rounded-full bg-foreground px-4 py-2 text-sm font-medium text-background transition-all duration-200 hover:opacity-85 hover:-translate-y-0.5 active:scale-95"
         >
           Let&rsquo;s Talk
         </Link>
@@ -56,7 +85,7 @@ function SiteHeader() {
 function SiteFooter() {
   return (
     <footer className="border-t border-primary/10 py-10">
-      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 text-sm text-muted-foreground md:flex-row">
+      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 px-6 text-sm text-muted-foreground md:flex-row">
         <div className="flex items-center gap-2.5">
           <Logo size={22} withGlow={false} />
           <span>© {new Date().getFullYear()} Henry Anayo. All rights reserved.</span>
@@ -68,9 +97,12 @@ function SiteFooter() {
             </Link>
           ))}
         </nav>
-        <a href="mailto:Tintillerke@gmail.com" className="transition-colors hover:text-primary">
-          Tintillerke@gmail.com
-        </a>
+        <div className="flex flex-wrap items-center gap-4">
+          <SocialIcons iconClassName="h-8 w-8" />
+          <a href="mailto:Tintillerke@gmail.com" className="transition-colors hover:text-primary">
+            Tintillerke@gmail.com
+          </a>
+        </div>
       </div>
     </footer>
   );
@@ -195,7 +227,8 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <div className="relative flex min-h-screen flex-col">
-        <div className="pointer-events-none fixed inset-x-0 top-0 z-0 h-[480px] bg-[radial-gradient(ellipse_60%_100%_at_50%_0%,oklch(0.585_0.21_27/0.12),transparent_70%)]" />
+        <ScrollProgress />
+        <div className="pointer-events-none fixed inset-x-0 top-0 z-0 h-[480px] bg-[radial-gradient(ellipse_60%_100%_at_50%_0%,oklch(0.585_0.21_27/0.12),transparent_70%)] animate-pulse-slow" />
         <SiteHeader />
         <main className="relative z-10 flex-1">
           {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}

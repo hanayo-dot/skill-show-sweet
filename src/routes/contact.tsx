@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Mail, MapPin } from "lucide-react";
 import { useState, type FormEvent } from "react";
+import { SocialIcons, ResumeButton } from "@/components/SocialLinks";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -33,11 +34,11 @@ function ContactPage() {
   };
 
   const inputClasses =
-    "w-full rounded-2xl border border-input bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/60 outline-none transition-colors focus:border-primary/50 focus:ring-2 focus:ring-ring";
+    "w-full rounded-2xl border border-input bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/60 outline-none transition-all duration-200 focus:border-primary/50 focus:ring-2 focus:ring-ring focus:-translate-y-0.5 focus:shadow-[0_0_20px_oklch(0.585_0.21_27/0.15)]";
 
   return (
     <div className="mx-auto max-w-6xl px-6 pb-24 pt-36">
-      <div className="relative overflow-hidden rounded-4xl border border-primary/15 bg-card">
+      <div className="relative overflow-hidden rounded-4xl border border-primary/15 bg-card shadow-2xl transition-all duration-300 hover:border-primary/30 animate-fade-in-up">
         <div className="absolute inset-0 bg-grid-red opacity-40 [mask-image:radial-gradient(ellipse_at_top_right,black,transparent_70%)]" />
         <div className="relative grid gap-12 p-8 sm:p-12 lg:grid-cols-2">
           <div>
@@ -52,9 +53,9 @@ function ContactPage() {
             <div className="mt-8 space-y-4 text-sm">
               <a
                 href="mailto:Tintillerke@gmail.com"
-                className="flex items-center gap-3 text-muted-foreground transition-colors hover:text-primary"
+                className="group flex items-center gap-3 text-muted-foreground transition-all duration-200 hover:text-primary hover:-translate-y-0.5"
               >
-                <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-primary/25 bg-primary/10 text-primary">
+                <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-primary/25 bg-primary/10 text-primary transition-all duration-200 group-hover:scale-110 group-hover:bg-primary group-hover:text-primary-foreground group-hover:glow-red">
                   <Mail className="h-4 w-4" />
                 </span>
                 Tintillerke@gmail.com
@@ -65,6 +66,17 @@ function ContactPage() {
                 </span>
                 Nairobi, Kenya · Working worldwide
               </p>
+            </div>
+            <div className="mt-8 border-t border-primary/10 pt-6">
+              <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+                Connect &amp; Socials
+              </p>
+              <div className="mt-3">
+                <SocialIcons />
+              </div>
+              <div className="mt-4">
+                <ResumeButton variant="subtle" />
+              </div>
             </div>
           </div>
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -110,7 +122,7 @@ function ContactPage() {
             </label>
             <button
               type="submit"
-              className="w-full rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+              className="w-full rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground transition-all duration-200 hover:opacity-90 hover:-translate-y-0.5 active:scale-95 hover:glow-red cursor-pointer"
             >
               Send message
             </button>

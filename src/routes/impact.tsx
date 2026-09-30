@@ -47,20 +47,22 @@ const testimonials = [
 function ImpactPage() {
   return (
     <div className="mx-auto max-w-6xl px-6 pb-24 pt-36">
-      <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">Impact</p>
-      <h1 className="mt-3 font-display text-4xl font-bold tracking-tight sm:text-5xl">
-        Numbers that <span className="text-primary text-glow-red">survive audit</span>
-      </h1>
-      <p className="mt-4 max-w-lg text-muted-foreground">
-        Engineering is only as good as its measurable outcomes. Here's mine.
-      </p>
+      <div className="animate-fade-in-up">
+        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">Impact</p>
+        <h1 className="mt-3 font-display text-4xl font-bold tracking-tight sm:text-5xl">
+          Numbers that <span className="text-primary text-glow-red">survive audit</span>
+        </h1>
+        <p className="mt-4 max-w-lg text-muted-foreground">
+          Engineering is only as good as its measurable outcomes. Here's mine.
+        </p>
+      </div>
       <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {stats.map((stat) => (
           <div
             key={stat.label}
-            className="rounded-3xl border border-primary/15 bg-card p-7 text-center transition-shadow hover:glow-red"
+            className="group rounded-3xl border border-primary/15 bg-card p-7 text-center transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:glow-red"
           >
-            <p className="font-display text-4xl font-bold text-primary text-glow-red">
+            <p className="font-display text-4xl font-bold text-primary text-glow-red transition-transform duration-200 group-hover:scale-105">
               {stat.value}
             </p>
             <p className="mt-3 text-sm text-muted-foreground">{stat.label}</p>
@@ -71,9 +73,9 @@ function ImpactPage() {
         {testimonials.map((testimonial) => (
           <figure
             key={testimonial.author}
-            className="rounded-3xl border border-primary/15 bg-card p-7 transition-shadow hover:glow-red"
+            className="group rounded-3xl border border-primary/15 bg-card p-7 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:glow-red"
           >
-            <Quote className="h-6 w-6 text-primary" />
+            <Quote className="h-6 w-6 text-primary transition-transform duration-200 group-hover:scale-110 group-hover:rotate-6" />
             <blockquote className="mt-4 text-base leading-relaxed">
               &ldquo;{testimonial.quote}&rdquo;
             </blockquote>
@@ -86,7 +88,7 @@ function ImpactPage() {
       <div className="mt-14 text-center">
         <Link
           to="/contact"
-          className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+          className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground transition-all duration-200 hover:opacity-90 hover:-translate-y-0.5 active:scale-95 hover:glow-red"
         >
           Get results like these
         </Link>

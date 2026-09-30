@@ -58,25 +58,27 @@ const projects = [
 function ProjectsPage() {
   return (
     <div className="mx-auto max-w-6xl px-6 pb-24 pt-36">
-      <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">Projects</p>
-      <h1 className="mt-3 font-display text-4xl font-bold tracking-tight sm:text-5xl">
-        Systems I've <span className="text-primary text-glow-red">built and shipped</span>
-      </h1>
-      <p className="mt-4 max-w-lg text-muted-foreground">
-        A selection of production platforms — each one live, load-tested, and still earning its
-        keep.
-      </p>
-      <div className="mt-12 grid gap-4 md:grid-cols-2">
+      <div className="animate-fade-in-up">
+        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">Projects</p>
+        <h1 className="mt-3 font-display text-4xl font-bold tracking-tight sm:text-5xl">
+          Systems I've <span className="text-primary text-glow-red">built and shipped</span>
+        </h1>
+        <p className="mt-4 max-w-lg text-muted-foreground">
+          A selection of production platforms — each one live, load-tested, and still earning its
+          keep.
+        </p>
+      </div>
+      <div className="mt-12 grid gap-6 md:grid-cols-2">
         {projects.map((project) => (
           <article
             key={project.name}
-            className="group relative flex flex-col rounded-3xl border border-primary/15 bg-card p-7 transition-shadow hover:glow-red"
+            className="group relative flex flex-col rounded-3xl border border-primary/15 bg-card p-7 transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/40 hover:glow-red"
           >
             <div className="flex items-start justify-between">
-              <h2 className="font-display text-2xl font-semibold">{project.name}</h2>
+              <h2 className="font-display text-2xl font-semibold transition-colors group-hover:text-primary">{project.name}</h2>
               <span className="flex items-center gap-1 text-xs text-muted-foreground">
                 {project.year}
-                <ArrowUpRight className="h-3.5 w-3.5 text-primary transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                <ArrowUpRight className="h-3.5 w-3.5 text-primary transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </span>
             </div>
             <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
@@ -86,7 +88,7 @@ function ProjectsPage() {
               {project.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-medium text-primary"
+                  className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-medium text-primary transition-colors duration-200 hover:border-primary/40 hover:bg-primary/20"
                 >
                   {tag}
                 </span>
@@ -98,7 +100,7 @@ function ProjectsPage() {
       <div className="mt-14 text-center">
         <Link
           to="/contact"
-          className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+          className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground transition-all duration-200 hover:opacity-90 hover:-translate-y-0.5 active:scale-95 hover:glow-red"
         >
           Discuss a project like these
         </Link>

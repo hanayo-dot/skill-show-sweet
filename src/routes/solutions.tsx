@@ -50,25 +50,27 @@ const solutions = [
 function SolutionsPage() {
   return (
     <div className="mx-auto max-w-6xl px-6 pb-24 pt-36">
-      <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">Solutions</p>
-      <h1 className="mt-3 font-display text-4xl font-bold tracking-tight sm:text-5xl">
-        How I can <span className="text-primary text-glow-red">move the needle</span>
-      </h1>
-      <p className="mt-4 max-w-lg text-muted-foreground">
-        Focused engagements for teams that need senior full-stack firepower without the agency
-        overhead.
-      </p>
+      <div className="animate-fade-in-up">
+        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">Solutions</p>
+        <h1 className="mt-3 font-display text-4xl font-bold tracking-tight sm:text-5xl">
+          How I can <span className="text-primary text-glow-red">move the needle</span>
+        </h1>
+        <p className="mt-4 max-w-lg text-muted-foreground">
+          Focused engagements for teams that need senior full-stack firepower without the agency
+          overhead.
+        </p>
+      </div>
       <div className="mt-12 space-y-4">
         {solutions.map((item) => (
           <div
             key={item.number}
-            className="group flex flex-col gap-4 rounded-3xl border border-primary/15 bg-card p-7 transition-shadow hover:glow-red sm:flex-row sm:items-start sm:gap-8"
+            className="group flex flex-col gap-4 rounded-3xl border border-primary/15 bg-card p-7 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:glow-red sm:flex-row sm:items-start sm:gap-8"
           >
-            <span className="font-display text-3xl font-bold text-primary/60 transition-colors group-hover:text-primary">
+            <span className="font-display text-3xl font-bold text-primary/60 transition-all duration-200 group-hover:scale-105 group-hover:text-primary group-hover:text-glow-red">
               {item.number}
             </span>
             <div>
-              <h2 className="font-display text-xl font-semibold">{item.title}</h2>
+              <h2 className="font-display text-xl font-semibold transition-colors duration-200 group-hover:text-foreground">{item.title}</h2>
               <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
                 {item.body}
               </p>
@@ -79,9 +81,10 @@ function SolutionsPage() {
       <div className="mt-14 text-center">
         <Link
           to="/contact"
-          className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+          className="group inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground transition-all duration-200 hover:opacity-90 hover:-translate-y-0.5 active:scale-95 hover:glow-red"
         >
-          Start a conversation <ArrowRight className="h-4 w-4" />
+          Start a conversation{" "}
+          <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
         </Link>
       </div>
     </div>
