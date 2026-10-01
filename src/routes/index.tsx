@@ -3,12 +3,11 @@ import { Link } from "@tanstack/react-router";
 import {
   ArrowRight,
   ArrowUpRight,
-  Bike,
   BookOpen,
   Code2,
-  Compass,
-  Cpu,
+  Feather,
   Gauge,
+  PenLine,
   Sparkles,
 } from "lucide-react";
 import heroPortrait from "@/assets/hero-portrait.jpg";
@@ -129,18 +128,25 @@ const articles = [
 
 const hobbies = [
   {
-    icon: Compass,
-    title: "Freshwater Conservation & GIS",
-    category: "Ecological Tech",
+    icon: BookOpen,
+    title: "Reading",
+    category: "Knowledge & Inquiry",
     description:
-      "Field hydrology, open satellite telemetry, and spatial mapping across Lake Victoria to protect vulnerable aquatic habitats and cage farmers.",
+      "Exploring literature, philosophy, and technical classics to cultivate deep focus, broaden perspective, and inform architectural thinking.",
   },
   {
-    icon: Cpu,
-    title: "Low-Level & Go Systems",
-    category: "Technical Craft",
+    icon: PenLine,
+    title: "Writing",
+    category: "Clarity & Synthesis",
     description:
-      "Exploring Go runtime scheduler internals, memory allocators, concurrent networking primitives, and tinkering with edge IoT hardware.",
+      "Articulating complex ideas, essays, and technical reflections with precision, narrative structure, and deliberate intent.",
+  },
+  {
+    icon: Feather,
+    title: "Poetry",
+    category: "Creative Expression",
+    description:
+      "Engaging with rhythm, imagery, and concise phrasing to cultivate creative intuition, emotional nuance, and economy of expression.",
   },
   {
     icon: Sparkles,
@@ -148,13 +154,6 @@ const hobbies = [
     category: "Mental Discipline",
     description:
       "Playing rapid and positional chess, studying master endgames, and training deep tactical calculation and composure under pressure.",
-  },
-  {
-    icon: Bike,
-    title: "Endurance Gravel Cycling",
-    category: "Endurance & Focus",
-    description:
-      "Long-distance rides through trails and dirt roads in Western Kenya, building physical stamina, perseverance, and clarity of thought.",
   },
 ];
 
@@ -167,13 +166,6 @@ function Index() {
         <div className="absolute -top-32 right-[-10%] h-[560px] w-[560px] rounded-full bg-primary/20 blur-[140px] animate-pulse-slow" />
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-6 pb-16 pt-36 lg:grid-cols-[1.1fr_0.9fr] lg:pt-44">
           <div>
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3.5 py-1 text-xs font-mono text-primary backdrop-blur-sm transition-all duration-200 hover:border-primary/45 hover:bg-primary/15 cursor-default animate-fade-in-up">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
-              </span>
-              Available for Q4/2026 Engineering &amp; Architecture
-            </div>
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary animate-fade-in-up">
               Full-Stack Software Engineer
             </p>
