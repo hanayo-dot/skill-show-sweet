@@ -10,7 +10,7 @@ import {
   PenLine,
   Sparkles,
 } from "lucide-react";
-import heroPortrait from "@/assets/hero-portrait.jpg";
+import { HeroPortrait } from "@/components/HeroPortrait";
 import dottedGlobe from "@/assets/dotted-globe.jpg";
 import chipMacro from "@/assets/chip-macro.jpg";
 import { SocialIcons, ResumeButton } from "@/components/SocialLinks";
@@ -202,13 +202,7 @@ function Index() {
           </div>
           <div className="relative group animate-fade-in-up delay-200">
             <div className="absolute inset-8 rounded-full bg-primary/25 blur-[100px] transition-all duration-700 group-hover:scale-105 group-hover:bg-primary/35 animate-pulse-slow" />
-            <img
-              src={heroPortrait}
-              alt="Henry Anayo, Full-Stack Software Engineer"
-              width={1024}
-              height={1280}
-              className="relative w-full rounded-3xl border border-primary/20 object-cover glow-red transition-all duration-500 group-hover:scale-[1.01] group-hover:border-primary/40"
-            />
+            <HeroPortrait />
           </div>
         </div>
         {/* Tech strip */}
