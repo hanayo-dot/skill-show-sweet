@@ -1,11 +1,13 @@
 import { useEffect, useRef } from "react";
 import heroBg from "@/assets/hero-bg.jpg";
 import henryCutout from "@/assets/henry-cutout.png";
+import henryText from "@/assets/henry-text.png";
+import anayoText from "@/assets/anayo-text.png";
 
 export function HeroPortrait() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const henryRef = useRef<HTMLDivElement>(null);
-  const anayoRef = useRef<HTMLDivElement>(null);
+  const henryRef = useRef<HTMLImageElement>(null);
+  const anayoRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
     let ticking = false;
@@ -25,7 +27,7 @@ export function HeroPortrait() {
 
       // Distance from the card's optimal center position
       const scrollY = window.scrollY || 0;
-      
+
       let dist = Math.abs(cardCenter - viewportCenter) / (windowHeight * 0.7);
       if (scrollY <= 15) {
         dist = 0;
@@ -34,8 +36,8 @@ export function HeroPortrait() {
       }
 
       // Max travel: at dist = 0 (viewing page/portrait), translate is 0% (central position).
-      // When scrolling away from the portrait, HENRY moves left (-45%) and ANAYO moves right (+45%).
-      const maxPercent = 45;
+      // When scrolling away from the portrait, HENRY moves left (-20%) and ANAYO moves right (+20%).
+      const maxPercent = 20;
       const henryX = -dist * maxPercent;
       const anayoX = dist * maxPercent;
 
@@ -64,18 +66,13 @@ export function HeroPortrait() {
     };
   }, []);
 
-  const textStyle: React.CSSProperties = {
-    WebkitTextStroke: "1.5px rgba(255, 255, 255, 0.88)",
-    color: "rgba(255, 255, 255, 0.08)",
-    textShadow:
-      "0 0 20px oklch(0.585 0.21 27 / 0.85), 0 0 45px oklch(0.585 0.21 27 / 0.45), 0 0 3px rgba(255, 255, 255, 0.7)",
-  };
-
   return (
     <div
       ref={containerRef}
       className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl border border-primary/20 glow-red transition-all duration-500 select-none group-hover:scale-[1.01] group-hover:border-primary/40"
     >
+      <span className="sr-only">Henry Anayo, Full-Stack Software Engineer</span>
+
       {/* Layer 1: Crimson laser grid backdrop */}
       <img
         src={heroBg}
@@ -86,20 +83,17 @@ export function HeroPortrait() {
         className="absolute inset-0 h-full w-full object-cover"
       />
 
-      {/* Layer 2: "HENRY" typography — positioned across upper chest, behind Henry's head/neck */}
-      <div
+      {/* Layer 2: "HENRY" optical glass typography — positioned behind Henry's head/neck */}
+      <img
         ref={henryRef}
+        src={henryText}
+        alt=""
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-[18%] z-0 flex items-center justify-center transition-transform duration-100 ease-out will-change-transform"
+        width={1024}
+        height={1280}
+        className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover transition-transform duration-100 ease-out will-change-transform"
         style={{ transform: "translate3d(0, 0, 0)" }}
-      >
-        <span
-          className="font-['Bebas_Neue',sans-serif] text-[clamp(4.2rem,13vw,8.5rem)] font-black leading-none tracking-[0.22em]"
-          style={textStyle}
-        >
-          HENRY
-        </span>
-      </div>
+      />
 
       {/* Layer 3: Henry's transparent cutout — sits in front of "HENRY" */}
       <img
@@ -110,20 +104,17 @@ export function HeroPortrait() {
         className="relative z-10 h-full w-full object-cover pointer-events-none"
       />
 
-      {/* Layer 4: "ANAYO" typography — positioned across suit jacket, in front of Henry */}
-      <div
+      {/* Layer 4: "ANAYO" optical glass typography — positioned in front of Henry's jacket */}
+      <img
         ref={anayoRef}
+        src={anayoText}
+        alt=""
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-[59%] z-20 flex items-center justify-center transition-transform duration-100 ease-out will-change-transform"
+        width={1024}
+        height={1280}
+        className="pointer-events-none absolute inset-0 z-20 h-full w-full object-cover transition-transform duration-100 ease-out will-change-transform"
         style={{ transform: "translate3d(0, 0, 0)" }}
-      >
-        <span
-          className="font-['Bebas_Neue',sans-serif] text-[clamp(4.2rem,13vw,8.5rem)] font-black leading-none tracking-[0.22em]"
-          style={textStyle}
-        >
-          ANAYO
-        </span>
-      </div>
+      />
     </div>
   );
 }

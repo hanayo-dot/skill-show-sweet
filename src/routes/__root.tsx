@@ -37,10 +37,7 @@ function ScrollProgress() {
   }, []);
 
   return (
-    <div
-      aria-hidden="true"
-      className="fixed inset-x-0 top-0 z-[60] h-[2px] pointer-events-none"
-    >
+    <div aria-hidden="true" className="fixed inset-x-0 top-0 z-[60] h-[2px] pointer-events-none">
       <div
         className="h-full bg-primary text-glow-red transition-[width] duration-75 ease-out shadow-[0_0_8px_var(--primary)]"
         style={{ width: `${progress}%` }}
@@ -53,7 +50,10 @@ function SiteHeader() {
   return (
     <header className="fixed inset-x-0 top-4 z-50 px-4">
       <div className="mx-auto flex max-w-6xl items-center justify-between rounded-full border border-primary/15 bg-background/70 py-2.5 pl-4 pr-2.5 backdrop-blur-xl shadow-lg shadow-black/20 transition-all duration-300 hover:border-primary/30">
-        <Link to="/" className="group flex items-center gap-2.5 transition-transform active:scale-95">
+        <Link
+          to="/"
+          className="group flex items-center gap-2.5 transition-transform active:scale-95"
+        >
           <Logo size={32} />
           <span className="text-sm font-semibold tracking-tight transition-colors group-hover:text-primary">
             Henry Anayo
@@ -191,7 +191,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     links: [
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&display=swap",
       },
       {
         rel: "stylesheet",
